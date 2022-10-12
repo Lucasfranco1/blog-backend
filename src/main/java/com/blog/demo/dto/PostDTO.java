@@ -20,6 +20,5 @@ public class PostDTO {
     @NotBlank
     @NotNull
     private String title;
-    @NotNull
     private String username;
 }

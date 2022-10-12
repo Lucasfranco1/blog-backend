@@ -74,8 +74,8 @@ public class PostService {
         PostEntity post = new PostEntity();
         post.setTitle(postDto.getTitle());
         post.setContent(postDto.getContent());
-        Authentication loggedInUser = SecurityContextHolder.getContext().getAuthentication();
-        String username = loggedInUser.getName();
+
+        String username = jwtProvider.getUsernameFromToken(postDto.getUsername());
         post.setUsername(username);
         post.setCreatedOn(Instant.now());
         post.setUpdatedOn(Instant.now());

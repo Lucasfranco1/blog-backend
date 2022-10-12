@@ -31,6 +31,7 @@ public class PostController {
     public ResponseEntity<List<PostDTO>> showAllPosts() {
         return new ResponseEntity<>(postService.showAllPosts(), HttpStatus.OK);
     }
+
     @PreAuthorize("hasRole('USER')")
     @PutMapping("/update/{id}")
     public ResponseEntity<PostDTO>updatePost(@PathVariable String id, @RequestBody PostDTO postDTO){
