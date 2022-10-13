@@ -9,6 +9,7 @@ import com.blog.demo.auth.enums.Roles;
 import com.blog.demo.auth.security.JwtProvider;
 import com.blog.demo.auth.service.RolService;
 import com.blog.demo.auth.service.UserService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,6 +40,7 @@ public class AuthController {
     private PasswordEncoder passwordEncoder;
 
     @PostMapping("/register")
+    @ApiOperation("Método para registrarse")
     public ResponseEntity<?> signup(@Valid @RequestBody UserDTO userDTO) throws Exception {
         User user =
                 new User(userDTO.getUserName(), userDTO.getEmail(), passwordEncoder.encode(userDTO.getPassword()));
@@ -47,6 +49,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
+    @ApiOperation("Método para loguearse")
     public ResponseEntity<JwtDTO>login(@RequestBody @Valid AuthenticationRequestDTO authRequest) throws Exception{
         Authentication authentication =
                 authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUserName(), authRequest.getPassword()));
