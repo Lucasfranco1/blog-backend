@@ -54,7 +54,9 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
                 .authorizeRequests()
-                .antMatchers("**",
+                .antMatchers(
+                        "**",
+                         "/email-password/**",
                          "/v2/api-docs/**",
                         "/swagger-ui/**",
                         "/swagger-resources/**",

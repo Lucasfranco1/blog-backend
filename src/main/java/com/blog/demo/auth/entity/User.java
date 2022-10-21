@@ -33,6 +33,8 @@ public class User {
     @NotNull
     private String password;
 
+    private String tokenPassword;
+
     @Column(unique = true)
     @Email
     @NotNull
