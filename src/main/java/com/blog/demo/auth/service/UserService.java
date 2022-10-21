@@ -40,6 +40,9 @@ public class UserService {
         return userRepository.findByUserName(userName);
     }
 
+    public Optional<User> getUserByTokenPassword(String tokenPassword){
+        return userRepository.findByTokenPassword(tokenPassword);
+    }
     public Optional<User> getByUserNameOrEmail(String userNameOrEmail){
         return userRepository.findByUserNameOrEmail(userNameOrEmail, userNameOrEmail);
     }
