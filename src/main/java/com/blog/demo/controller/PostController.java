@@ -24,6 +24,7 @@ public class PostController {
     @Autowired
     private PostService postService;
 
+    //coment
 
     @PreAuthorize("hasRole('USER')")
     @PostMapping("/create")
